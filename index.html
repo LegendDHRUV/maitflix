@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maitflix | Dhruv Gupta</title>
+<meta name="description" content="Maitflix: a trailer and discovery portfolio project by Dhruv Gupta. Vibe search, where-to-watch, shorts and more.">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--a:#19d3c5;--b:#ffb020;--bg:#0b0f14;--card:#141a22}
@@ -101,7 +104,7 @@ footer a{color:var(--a)}
 <footer>
 <strong style="color:#fff;font-family:'Bebas Neue';font-size:1.8rem">MAITFLIX</strong><br>
 Developed by <strong style="color:#fff">Dhruv Gupta</strong> · Maharaja Agrasen Institute of Technology<br>
-<a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a><br>
+<a href="https://github.com/LegendDHRUV" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/dhruvgupta-it" target="_blank" rel="noopener">LinkedIn</a><br>
 This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability data by JustWatch.
 </footer>
 
@@ -118,7 +121,7 @@ This product uses the TMDB API but is not endorsed or certified by TMDB. Streami
 <div id="toast"></div>
 
 <script>
-const CFG={KEY:'YOUR_NEW_TMDB_KEY',PROXY:'',REGION:'IN'}; // PROXY: your Spring Boot base URL later (then KEY is not sent from the browser)
+const CFG={KEY:'49abc2b93cf5751622b46aee5e73fb80',PROXY:'',REGION:'IN'}; // PROXY: your Spring Boot base URL later (then KEY is not sent from the browser)
 const IMG='https://image.tmdb.org/t/p/';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -129,7 +132,7 @@ let cur=null,tok=0,loadTok=0,view='all',featured=[],idx=0,auto,modalOpen=false,t
 
 async function api(path,p={}){
   const u=new URL((CFG.PROXY||'https://api.themoviedb.org/3')+path);
-  if(!CFG.PROXY)u.searchParams.set('api_key',"49abc2b93cf5751622b46aee5e73fb80");
+  if(!CFG.PROXY)u.searchParams.set('api_key',CFG.KEY);
   for(const k in p)u.searchParams.set(k,p[k]);
   const key=u.toString();
   if(cache.has(key))return cache.get(key);
@@ -258,6 +261,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeS
 
 /* search */
 let st;
+$('#q').onkeydown=e=>{if(e.key==='Enter')$('#sg .si2[data-id]')?.click()};
 $('#q').oninput=e=>{
   clearTimeout(st);const q=e.target.value.trim();
   if(q.length<2){$('#sg').style.display='none';return}
