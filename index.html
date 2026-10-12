@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Maitflix">
 <title>Maitflix | Dhruv Gupta</title>
 <meta name="description" content="Maitflix: a trailer and discovery portfolio project by Dhruv Gupta. Vibe search, where-to-watch, shorts and more.">
 <meta name="theme-color" content="#0b0f14">
@@ -77,6 +81,74 @@ h3.sec{font-size:1rem;margin:20px 0 8px;color:var(--b)}
 footer{background:#080b0f;padding:40px 4%;border-top:3px solid var(--a);text-align:center;color:#8a95a3;margin-top:40px;font-size:.85rem;line-height:1.8}
 footer a{color:var(--a)}
 @media(max-width:700px){nav{height:auto;padding:8px 4%;flex-wrap:wrap}.logo small{display:none}#q{width:110px}.card{min-width:200px;height:112px}.sk{min-width:200px;height:112px}.hero{height:70vh}}
+nav{justify-content:flex-start}.search{margin-left:auto}
+.abtn{margin-left:12px;background:transparent;color:#fff;border:1px solid var(--a);border-radius:20px;padding:7px 16px;font-weight:700;white-space:nowrap}.abtn.av{width:36px;height:36px;padding:0;border-radius:50%;background:var(--a);color:#001}
+#auth{position:fixed;inset:0;background:#000e;z-index:3500;display:none;align-items:center;justify-content:center}#auth.on{display:flex}
+#abox{width:min(92%,420px);max-height:90vh;overflow-y:auto;background:var(--card);border-radius:12px;padding:24px;border-top:4px solid var(--a)}
+#abox input{width:100%;background:#0b0f14;border:1px solid #2f3a48;color:#fff;border-radius:6px;padding:11px;margin-bottom:10px}
+#abox h3{font-family:'Bebas Neue';color:var(--a);font-size:1.8rem;margin:0}#abox h4{color:var(--b);margin:16px 0 6px}
+.tabs{display:flex;gap:8px;margin-bottom:14px}.tabs button{flex:1;background:#1d2530;color:#fff;border:0;padding:9px;border-radius:6px}.tabs .on{background:var(--b);color:#000;font-weight:700}
+#aerr{color:#ff6b6b;font-size:.8rem;min-height:1em;margin-bottom:8px}
+#gate{position:fixed;inset:0;z-index:4500;background:#000;display:none;overflow-y:auto}#gate.on{display:block}
+#gwall{position:fixed;inset:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));grid-auto-rows:165px;gap:6px;opacity:.4;transform:scale(1.15) rotate(-4deg);pointer-events:none}
+#gwall img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+.gshade{position:fixed;inset:0;background:radial-gradient(circle at center,#000a 0,#000f 85%),linear-gradient(#000d,transparent 30%,#000d);pointer-events:none}
+.glogo{position:relative;font-family:'Bebas Neue';font-size:2.6rem;color:var(--a);letter-spacing:2px;padding:20px 4%}
+#gcard{position:relative;width:min(92%,420px);margin:3vh auto 40px;background:#000000c8;border:1px solid #ffffff1a;border-radius:10px;padding:36px 36px 28px;backdrop-filter:blur(6px)}
+#gcard h2{font-family:'Bebas Neue';font-size:2.6rem;margin:0 0 4px}
+.gs{color:#9aa6b4;font-size:.85rem;line-height:1.5}
+#gcard input{width:100%;background:#0b0f14cc;border:1px solid #3a4658;color:#fff;border-radius:6px;padding:14px;margin-bottom:12px;font-size:.95rem}
+#gcard input:focus{outline:0;border-color:var(--a)}
+.gbtn{width:100%;border:0;border-radius:6px;padding:13px;font-weight:700;background:var(--a);color:#001;font-size:1rem}.gbtn.gg{background:#fff;color:#000}
+.gor{text-align:center;color:#6c7889;margin:12px 0;font-size:.8rem}
+.gl{color:var(--a);cursor:pointer;font-size:.85rem}.gl:hover{text-decoration:underline}.gl.guest{display:block;text-align:center;margin-top:10px;color:#cfd8e3}
+#gerr{color:#ff6b6b;font-size:.82rem;min-height:1.2em;margin-bottom:8px}
+#prof{position:fixed;inset:0;z-index:4400;background:radial-gradient(circle at 50% 30%,#16202c,#05080c 70%);display:none;overflow-y:auto}#prof.on{display:block}
+.pwrap{text-align:center;padding:6vh 4% 40px}
+#ph{font-family:'Bebas Neue';font-size:clamp(2.2rem,6vw,3.6rem);font-weight:400;margin:0 0 30px}
+#pgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:28px;min-height:160px}
+.pt{width:130px;cursor:pointer;color:#8a95a3;transition:.2s;animation:pop .5s both}.pt:nth-child(2){animation-delay:.07s}.pt:nth-child(3){animation-delay:.14s}.pt:nth-child(4){animation-delay:.21s}.pt:nth-child(5){animation-delay:.28s}.pt:nth-child(6){animation-delay:.35s}
+.pa{width:130px;height:130px;border-radius:10px;overflow:hidden;border:3px solid transparent;transition:.2s;position:relative;background:#1d2530}
+.pa svg{width:100%;height:100%;display:block}
+.pt:hover{color:#fff}.pt:hover .pa{border-color:#fff;transform:scale(1.07)}
+.pn{margin-top:10px}
+.pa.add{display:flex;align-items:center;justify-content:center;font-size:3.5rem;color:#8a95a3;background:#141a22}
+.pen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#000a;font-size:2rem;color:#fff}
+.pm{margin-top:40px;background:transparent;color:#8a95a3;border:1px solid #556;padding:10px 26px;letter-spacing:2px;text-transform:uppercase;font-size:.85rem}.pm:hover{color:#fff;border-color:#fff}
+.pedit{display:flex;flex-direction:column;align-items:center;gap:16px;width:min(92%,520px)}
+.pedit input{width:100%;background:#0b0f14cc;border:1px solid #3a4658;color:#fff;border-radius:6px;padding:14px;font-size:1rem;text-align:center}
+.pa.big{width:150px;height:150px}.pav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.pa.sm{width:56px;height:56px;border-radius:8px;cursor:pointer}.pa.sm.sel{border-color:var(--a)}
+.abtn.av{overflow:hidden}.abtn.av svg{width:100%;height:100%;display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.9)}}
+@media(max-width:700px){.pt,.pa{width:100px}.pa{height:100px}.pa.big{width:130px;height:130px}.pa.sm{width:48px;height:48px}}
+html{overflow-x:hidden;-webkit-text-size-adjust:100%}*{-webkit-tap-highlight-color:transparent}button,a,.card,.pt{touch-action:manipulation}
+.bnav{display:none}
+.btn,.chips button,.tabs button,.gbtn{min-height:44px}
+.sv iframe{width:calc(100dvh*1.78)}
+@media(min-width:1400px){.hero{height:88vh}.card,.sk{min-width:300px;height:170px}.row h2{font-size:1.5rem}.links{font-size:.95rem}}
+@media(hover:none){.card:hover{transform:none;outline:0}.pt:hover .pa{transform:none;border-color:transparent}.pt:hover{color:#8a95a3}.arr{display:none}}
+@media(max-width:700px){
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+nav{height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 4% 0;flex-wrap:nowrap}
+.links{display:none}.logo{font-size:1.7rem}
+.search{flex:1;margin-left:12px}#q{width:100%;font-size:16px}
+#sg{position:fixed;left:4%;right:4%;top:calc(58px + env(safe-area-inset-top));width:auto}
+.abtn{margin-left:8px;flex-shrink:0}
+.hero{height:64vh;height:64svh;min-height:380px;align-items:flex-end;padding-bottom:36px}
+#hd{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:.9rem}
+#hl{max-width:240px}.btn{padding:10px 16px;font-size:.9rem}
+.row h2{font-size:1.05rem}.slider{padding-bottom:20px}
+.bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1100;background:#0b0f14f5;border-top:1px solid #1f2933;padding-bottom:env(safe-area-inset-bottom)}
+.bnav a{flex:1;text-align:center;padding:8px 0 6px;font-size:.62rem;color:#8a95a3;cursor:pointer}.bnav a i{display:block;font-style:normal;font-size:1.25rem;line-height:1.3}.bnav a.on{color:var(--a);font-weight:700}
+#toast{bottom:calc(80px + env(safe-area-inset-bottom));max-width:90%}
+.modal{padding:0}.mi{width:100%;min-height:100%;border-radius:0}.mb{padding:18px}#mt{font-size:2.1rem}.x{top:calc(10px + env(safe-area-inset-top));width:40px;height:40px}
+#gcard{padding:26px 20px;margin:2vh auto 30px}#gcard input,#abox input,.pedit input{font-size:16px}
+#gwall{grid-template-columns:repeat(auto-fill,minmax(80px,1fr));grid-auto-rows:120px}
+.pwrap{padding-top:4vh}#pgrid{gap:16px}
+#sx{top:calc(14px + env(safe-area-inset-top))}.sf{padding-bottom:calc(22px + env(safe-area-inset-bottom))}
+#abox{max-height:86vh}footer{padding-bottom:30px}
+}
 </style>
 </head>
 <body>
@@ -89,7 +161,9 @@ footer a{color:var(--a)}
 <div class="nl"><div class="logo" onclick="location.reload()">MAITFLIX<small>Dhruv Gupta</small></div>
 <div class="links"><a data-v="all" class="on">Home</a><a data-v="tv">Series</a><a data-v="movie">Movies</a><a data-v="vibe">Vibe</a><a data-v="shorts">Shorts</a><a data-v="list">My List</a></div></div>
 <div class="search"><input id="q" placeholder="Search..." autocomplete="off"><div id="sg"></div></div>
+<button id="ab" class="abtn" onclick="openAuth()">Sign in</button>
 </nav>
+<div class="bnav"><a data-v="all" class="on"><i>🏠</i>Home</a><a data-v="tv"><i>📺</i>Series</a><a data-v="movie"><i>🎬</i>Movies</a><a data-v="vibe"><i>✨</i>Vibe</a><a data-v="shorts"><i>▶️</i>Shorts</a><a data-v="list"><i>➕</i>My List</a></div>
 
 <header class="hero" id="hero"><div class="ho"></div>
 <div id="hc"><img id="hl" alt=""><h1 id="ht"></h1><p id="hd"></p>
@@ -104,7 +178,7 @@ footer a{color:var(--a)}
 <footer>
 <strong style="color:#fff;font-family:'Bebas Neue';font-size:1.8rem">MAITFLIX</strong><br>
 Developed by <strong style="color:#fff">Dhruv Gupta</strong> · Maharaja Agrasen Institute of Technology<br>
-<a href="https://github.com/LegendDHRUV" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/dhruvgupta-it" target="_blank" rel="noopener">LinkedIn</a><br>
+<a href="https://linkedin.com/in/dhruvgupta-it" target="_blank" rel="noopener">LinkedIn</a><br>
 This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability data by JustWatch.
 </footer>
 
@@ -118,6 +192,9 @@ This product uses the TMDB API but is not endorsed or certified by TMDB. Streami
 </div></div></div>
 
 <div id="shorts"><div id="col"></div></div><button id="sx" onclick="closeShorts()" aria-label="Close shorts">✕</button>
+<div id="auth"><button class="x" onclick="closeAuth()" aria-label="Close">✕</button><div id="abox"></div></div>
+<div id="gate"><div id="gwall"></div><div class="gshade"></div><div class="glogo">MAITFLIX</div><div id="gcard"></div></div>
+<div id="prof"><div class="glogo">MAITFLIX</div><div class="pwrap"><h1 id="ph">Who's watching?</h1><div id="pgrid"></div><button id="pmg" class="pm">Manage Profiles</button></div></div>
 <div id="toast"></div>
 
 <script>
@@ -126,7 +203,8 @@ const IMG='https://image.tmdb.org/t/p/';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const title=i=>i.title||i.name||'';
-const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+let PID=null;const SC=k=>(k==='mf_hist'||k==='mf_list')&&PID?k+'_'+PID:k;
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(SC(k)))??d}catch{return d}},set(k,v){try{localStorage.setItem(SC(k),JSON.stringify(v))}catch{}if(/^mf_(hist|list|profiles)/.test(k))window.cloudSave?.()}};
 const cache=new Map();
 let cur=null,tok=0,loadTok=0,view='all',featured=[],idx=0,auto,modalOpen=false,tt;
 
@@ -144,7 +222,7 @@ function pickTrailer(v){const r=(v.results||[]).filter(x=>x.site==='YouTube');re
 
 /* intro */
 function chime(){try{const a=new AudioContext(),t=a.currentTime;[523,659,784].forEach((f,i)=>{const o=a.createOscillator(),g=a.createGain(),s=t+i*.12;o.frequency.value=f;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.15,s+.03);g.gain.exponentialRampToValueAtTime(.0001,s+.5);o.connect(g).connect(a.destination);o.start(s);o.stop(s+.55)})}catch{}}
-function enter(){$('#dis').style.display='none';try{sessionStorage.setItem('mf_ok',1)}catch{}chime()}
+function enter(){$('#dis').style.display='none';try{sessionStorage.setItem('mf_ok',1)}catch{}chime();window.gateCheck?.()}
 try{if(sessionStorage.getItem('mf_ok'))$('#dis').style.display='none'}catch{}
 
 /* rows & cards */
@@ -184,7 +262,7 @@ function personal(){
 }
 async function loadHome(v){
   view=v;stopAuto();const my=++loadTok;
-  document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
+  document.querySelectorAll('.links a,.bnav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
   const R=$('#rows');
   R.innerHTML=`<div class="row"><div class="slider">${'<div class="sk"></div>'.repeat(8)}</div></div>`.repeat(2);
   const defs=VIEWS[v];
@@ -248,7 +326,7 @@ function openModal(){
   $('#cast').innerHTML=(d.credits?.cast||[]).slice(0,10).map(c=>`<div class="cm">${c.profile_path?`<img loading="lazy" src="${IMG}w185${c.profile_path}" alt="">`:`<div class="ph">${esc((c.name||'?')[0])}</div>`}<b>${esc(c.name)}</b><br>${esc(c.character||'')}</div>`).join('')||'—';
   $('#sim').innerHTML=(d.recommendations?.results||[]).filter(x=>x.poster_path).slice(0,10).map(x=>`<div class="sm" data-id="${x.id}" data-t="${x.media_type||d.mt}"><img loading="lazy" src="${IMG}w342${x.poster_path}" alt=""><div>${esc(title(x))}</div></div>`).join('')||'—';
   const h=store.get('mf_hist',[]).filter(x=>!same(x));
-  h.unshift({id:d.id,media_type:d.mt,title:title(d),backdrop_path:d.backdrop_path,poster_path:d.poster_path});store.set('mf_hist',h.slice(0,12));
+  h.unshift({id:d.id,media_type:d.mt,title:title(d),backdrop_path:d.backdrop_path,poster_path:d.poster_path,ts:Date.now()});store.set('mf_hist',h.slice(0,30));
   $('#modal').classList.add('on');$('#modal').scrollTop=0;
 }
 function closeModal(){$('#modal').classList.remove('on');$('#vb').innerHTML='';modalOpen=false}
@@ -257,7 +335,7 @@ $('#sp').checked=store.get('mf_spoil',false);
 $('#sp').onchange=()=>{store.set('mf_spoil',$('#sp').checked);spoil()};
 $('#modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
 $('#sim').onclick=async e=>{const s=e.target.closest('.sm');if(!s)return;await setHero(s.dataset.id,s.dataset.t,true);openModal()};
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeShorts()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeShorts();closeAuth()}});
 
 /* search */
 let st;
@@ -315,7 +393,7 @@ async function openShorts(){
 function closeShorts(){$('#shorts').classList.remove('on');document.body.style.overflow='';document.querySelectorAll('#col .sv').forEach(b=>b.innerHTML='')}
 
 /* nav */
-document.querySelector('.links').onclick=e=>{
+const navClick=e=>{
   const a=e.target.closest('a');if(!a)return;const v=a.dataset.v;
   if(['all','tv','movie'].includes(v)){loadHome(v);window.scrollTo({top:0,behavior:'smooth'})}
   else if(v==='vibe'){const el=$('#vibe');el.classList.toggle('on');if(el.classList.contains('on'))el.scrollIntoView({behavior:'smooth'})}
@@ -325,11 +403,181 @@ document.querySelector('.links').onclick=e=>{
     loadHome('all').then(()=>$('#mylist')?.scrollIntoView({behavior:'smooth'}));
   }
 };
+document.querySelectorAll('.links,.bnav').forEach(el=>el.onclick=navClick);
 window.addEventListener('scroll',()=>$('#nav').classList.toggle('s',scrollY>50));
+
+/* account */
+let amode='in';
+const hist=()=>store.get('mf_hist',[]);
+const merge=(a,b)=>{const s=new Set();return[...a,...b].filter(x=>{const k=x.media_type+x.id;return s.has(k)?0:s.add(k)})};
+const lj=k=>{try{return JSON.parse(localStorage.getItem(k))||[]}catch{return[]}};
+window.localData=()=>{const p=profs(),data={};p.forEach(x=>{data[x.id]={hist:lj('mf_hist_'+x.id),list:lj('mf_list_'+x.id)}});return{profiles:p,data}};
+window.applyCloud=c=>{
+  let data=c.data||{},cp=c.profiles||[];
+  if(!cp.length&&(c.hist||c.list)){cp=[{id:'p1',name:defName(),av:0}];data={p1:{hist:c.hist||[],list:c.list||[]}}}
+  const lp=profs();if(!lp.length)legacy();
+  const ids=new Set(lp.map(p=>p.id)),mp=[...lp,...cp.filter(p=>!ids.has(p.id))];
+  mp.forEach(p=>{const d=data[p.id]||{};
+    localStorage.setItem('mf_hist_'+p.id,JSON.stringify(merge(lj('mf_hist_'+p.id),d.hist||[]).sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,30)));
+    localStorage.setItem('mf_list_'+p.id,JSON.stringify(merge(lj('mf_list_'+p.id),d.list||[])))});
+  store.set('mf_profiles',mp);
+  if(PID){if(view==='all')personal();listBtn()}
+  if($('#prof').classList.contains('on'))renderProfiles();
+  navBtn();
+};
+window.clearLocal=()=>{Object.keys(localStorage).filter(k=>/^mf_(hist|list|profiles)/.test(k)).forEach(k=>localStorage.removeItem(k));PID=null;ss('mf_pid','');$('#prof').classList.remove('on');if(view==='all')personal();listBtn();navBtn()};
+window.onAuth=()=>navBtn();
+function closeAuth(){$('#auth').classList.remove('on')}
+function setMode(m){amode=m;openAuth()}
+function clearHist(){store.set('mf_hist',[]);if(view==='all')personal();openAuth()}
+function openAuth(){
+  const b=$('#abox'),u=window.Auth?.user;
+  if(!window.Auth)b.innerHTML='<h3>Accounts need a one-time setup</h3><p class="pc">Add your Firebase config in the module script at the bottom of index.html. Until then, your list and history stay on this device.</p>';
+  else if(u){
+    const h=hist().slice(0,15);
+    b.innerHTML=`<h3>${esc(u.displayName||'Your account')}</h3><p class="pc">${esc(u.email||'')}</p><h4>Watch history · ${esc(curProf()?.name||'')}</h4><div id="ah">${h.map(x=>`<div class="si2" data-id="${x.id}" data-t="${x.media_type}">${x.poster_path?`<img src="${IMG}w92${x.poster_path}" alt="">`:''}<span>${esc(title(x))}</span></div>`).join('')||'<p class="pc">Nothing yet. Open a trailer and it shows up here.</p>'}</div><br><button class="btn b2" onclick="showProfiles()">Switch profile</button><button class="btn b2" onclick="clearHist()">Clear history</button><button class="btn b1" onclick="Auth.out()">Sign out</button>`;
+  }else b.innerHTML=`<div class="tabs"><button class="${amode==='in'?'on':''}" onclick="setMode('in')">Log in</button><button class="${amode==='up'?'on':''}" onclick="setMode('up')">Sign up</button></div>${amode==='up'?'<input id="an" placeholder="Name" autocomplete="name">':''}<input id="ae" type="email" placeholder="Email" autocomplete="email"><input id="ap" type="password" placeholder="Password (6+ characters)" autocomplete="${amode==='up'?'new-password':'current-password'}"><div id="aerr"></div><button class="btn b1" style="width:100%" onclick="authSubmit()">${amode==='up'?'Create account':'Log in'}</button><button class="btn b2" style="width:100%" onclick="authGoogle()">Continue with Google</button><p class="pc">Signed in, your list and history sync across devices.</p><p class="pc"><a onclick="showProfiles()" style="cursor:pointer;color:var(--a)">Switch profile</a></p>`;
+  $('#auth').classList.add('on');
+}
+async function authSubmit(){
+  const n=$('#an')?.value.trim(),e=$('#ae').value.trim(),p=$('#ap').value,er=$('#aerr');er.textContent='';
+  if(!e||p.length<6){er.textContent='Enter an email and a password of 6+ characters.';return}
+  try{amode==='up'?await Auth.signUp(n,e,p):await Auth.signIn(e,p);closeAuth();toast('Welcome to Maitflix!')}catch(x){er.textContent=Auth.msg(x)}
+}
+async function authGoogle(){try{await Auth.google();closeAuth();toast('Signed in')}catch(x){$('#aerr').textContent=Auth.msg(x)}}
+$('#auth').onclick=e=>{if(e.target.id==='auth')closeAuth()};
+$('#abox').onclick=async e=>{const d=e.target.closest('#ah [data-id]');if(!d)return;closeAuth();stopAuto();window.scrollTo({top:0});await setHero(d.dataset.id,d.dataset.t,true);openModal()};
+
+/* gate: disclaimer -> sign in / sign up -> home */
+let gmode='in';
+const ss=(k,v)=>{try{return v===undefined?sessionStorage.getItem(k):sessionStorage.setItem(k,v)}catch{}};
+window.gateCheck=()=>{
+  const g=$('#gate');
+  if(window.Auth?.user)ss('mf_gate',1);
+  if(!window.AUTH_ON||ss('mf_gate')){g.classList.remove('on');profCheck();return}
+  if(ss('mf_ok')&&!g.classList.contains('on')){renderGate();gateBg();$('#prof').classList.remove('on');g.classList.add('on')}
+};
+function renderGate(){
+  const up=gmode==='up';
+  $('#gcard').innerHTML=`<h2>${up?'Create account':'Sign in'}</h2><p class="gs">Trailers, vibes and where to watch, all in one place.</p>${up?'<input id="gn" placeholder="Your name" autocomplete="name">':''}<input id="ge" type="email" placeholder="Email address" autocomplete="email"><input id="gp" type="password" placeholder="Password" autocomplete="${up?'new-password':'current-password'}"><div id="gerr"></div><button class="gbtn" onclick="gateSubmit()">${up?'Sign up':'Sign in'}</button><div class="gor">or</div><button class="gbtn gg" onclick="gateGoogle()">Continue with Google</button>${up?'':'<p style="text-align:center;margin:12px 0 0"><a class="gl" onclick="gateReset()">Forgot password?</a></p>'}<p class="gs" style="margin-top:14px">${up?'Already have an account? <a class="gl" onclick="gateMode(\'in\')">Sign in</a>':'New to Maitflix? <a class="gl" onclick="gateMode(\'up\')">Sign up now</a>'}</p><a class="gl guest" onclick="gateGuest()">Continue as guest</a>`;
+  $('#gcard').onkeydown=e=>{if(e.key==='Enter')gateSubmit()};
+}
+function gateMode(m){gmode=m;renderGate()}
+function gateDone(m){ss('mf_gate',1);$('#gate').classList.remove('on');toast(m);window.scrollTo(0,0);profCheck()}
+async function gateSubmit(){
+  const n=$('#gn')?.value.trim(),e=$('#ge').value.trim(),p=$('#gp').value,er=$('#gerr');er.style.color='';er.textContent='';
+  if(!window.Auth){er.textContent='Still loading, try again in a moment.';return}
+  if(!e||p.length<6){er.textContent='Enter your email and a password of 6+ characters.';return}
+  try{window.SN=n;gmode==='up'?await Auth.signUp(n,e,p):await Auth.signIn(e,p);gateDone('Welcome'+(n?', '+n:' back')+'!')}catch(x){er.textContent=Auth.msg(x)}
+}
+async function gateGoogle(){if(!window.Auth)return;try{await Auth.google();gateDone('Signed in')}catch(x){$('#gerr').textContent=Auth.msg(x)}}
+async function gateReset(){
+  const e=$('#ge').value.trim(),er=$('#gerr');er.style.color='';
+  if(!e){er.textContent='Type your email above first.';return}
+  try{await Auth.reset(e);er.style.color='#46d369';er.textContent='Password reset email sent. Check your inbox.'}catch(x){er.textContent=Auth.msg(x)}
+}
+function gateGuest(){gateDone('Browsing as guest')}
+async function gateBg(){
+  const w=$('#gwall');if(w.dataset.r)return;w.dataset.r=1;
+  try{const p=(await api('/trending/all/week')).results.filter(i=>i.poster_path).slice(0,20);w.innerHTML=[...p,...p,...p].map(i=>`<img src="${IMG}w185${i.poster_path}" alt="">`).join('')}catch{w.dataset.r=''}
+}
+
+/* profiles: "Who's watching?" */
+const AV=[['#19d3c5','e','s'],['#ffb020','e','g'],['#e5484d','h','s'],['#8b5cf6','e','o'],['#3b82f6','w','s'],['#ec4899','h','g'],['#22c55e','e','t'],['#f97316','w','f'],['#0ea5e9','h','o'],['#a3e635','w','g']];
+const ST='fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"';
+const EY={e:'<circle cx="35" cy="42" r="6"/><circle cx="65" cy="42" r="6"/>',h:`<path d="M28 44q7-10 14 0M58 44q7-10 14 0" ${ST}/>`,w:`<circle cx="35" cy="42" r="6"/><path d="M58 42h14" ${ST}/>`};
+const MO={s:`<path d="M30 62q20 20 40 0" ${ST}/>`,g:'<path d="M28 60h44q-4 22-22 22t-22-22z"/>',o:'<ellipse cx="50" cy="72" rx="8" ry="10"/>',t:`<path d="M30 62q20 18 40 0" ${ST}/><path d="M44 72q6 14 14 0z" fill="#e5484d" stroke="#111" stroke-width="3"/>`,f:`<path d="M32 70h36" ${ST}/>`};
+const avatar=i=>{const a=AV[i%AV.length];return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="${a[0]}"/><g fill="#111">${EY[a[1]]}${MO[a[2]]}</g></svg>`};
+const profs=()=>store.get('mf_profiles',[]);
+const curProf=()=>profs().find(p=>p.id===PID);
+const defName=()=>{const u=window.Auth?.user;return(window.SN||u?.displayName||u?.email?.split('@')[0]||'Guest').slice(0,14)};
+const legacy=()=>['mf_hist','mf_list'].forEach(k=>{const v=localStorage.getItem(k);if(v){localStorage.setItem(k+'_p1',v);localStorage.removeItem(k)}});
+let pm=false,pe=null;
+function navBtn(){const b=$('#ab'),p=curProf();if(p){b.innerHTML=avatar(p.av);b.className='abtn av';b.title=p.name}else{b.textContent='Sign in';b.className='abtn';b.title=''}}
+function profCheck(){
+  if($('#gate').classList.contains('on')||!ss('mf_ok'))return;
+  const P=$('#prof');
+  if(window.AUTH_ON&&window.Auth?.user&&!window.cloudReady){P.classList.add('on');$('#pgrid').innerHTML='<p class="gs">Loading your profiles…</p>';return}
+  let l=profs();
+  if(!l.length){legacy();l=[{id:'p1',name:defName(),av:0}];store.set('mf_profiles',l)}
+  const sid=ss('mf_pid');
+  if(sid&&l.some(p=>p.id===sid)){selectProf(sid,true);return}
+  pm=false;pe=null;renderProfiles();P.classList.add('on');
+}
+function selectProf(id,silent){
+  PID=id;ss('mf_pid',id);$('#prof').classList.remove('on');navBtn();
+  if(view==='all')personal();listBtn();
+  if(!silent)toast('Profile: '+curProf().name);
+}
+function showProfiles(){closeAuth();ss('mf_pid','');pm=false;pe=null;renderProfiles();$('#prof').classList.add('on')}
+function renderProfiles(){
+  const l=profs(),g=$('#pgrid');
+  $('#pmg').style.display=pe?'none':'';
+  if(pe){
+    $('#ph').textContent=pe.id==='new'?'Add Profile':'Edit Profile';
+    g.innerHTML=`<div class="pedit"><div class="pa big">${avatar(pe.av)}</div><input id="pname" maxlength="14" placeholder="Profile name" value="${esc(pe.name)}"><div class="pav">${AV.map((_,i)=>`<div class="pa sm${i===pe.av?' sel':''}" data-av="${i}">${avatar(i)}</div>`).join('')}</div><div><button class="gbtn" style="width:auto;padding:12px 28px" onclick="saveProf()">Save</button> <button class="gbtn gg" style="width:auto;padding:12px 28px" onclick="pe=null;renderProfiles()">Cancel</button></div>${pe.id!=='new'&&l.length>1?'<a class="gl" onclick="delProf()">Delete profile</a>':''}</div>`;
+    return;
+  }
+  $('#ph').textContent=pm?'Manage Profiles':"Who's watching?";
+  $('#pmg').textContent=pm?'Done':'Manage Profiles';
+  g.innerHTML=l.map(p=>`<div class="pt" data-id="${esc(p.id)}"><div class="pa">${avatar(p.av)}${pm?'<span class="pen">✎</span>':''}</div><div class="pn">${esc(p.name)}</div></div>`).join('')+(l.length<5?'<div class="pt" data-id="new"><div class="pa add">+</div><div class="pn">Add Profile</div></div>':'');
+}
+$('#pgrid').onclick=e=>{
+  if(pe){const a=e.target.closest('[data-av]');if(a){pe.name=$('#pname').value;pe.av=+a.dataset.av;renderProfiles()}return}
+  const t=e.target.closest('.pt');if(!t)return;const id=t.dataset.id;
+  if(id==='new'){pe={id:'new',name:'',av:Math.floor(Math.random()*AV.length)};renderProfiles();return}
+  if(pm){const p=profs().find(x=>x.id===id);pe={id,name:p.name,av:p.av};renderProfiles();return}
+  selectProf(id);
+};
+$('#pmg').onclick=()=>{pm=!pm;pe=null;renderProfiles()};
+function saveProf(){
+  const name=$('#pname').value.trim()||'Profile';let l=profs();
+  if(pe.id==='new')l.push({id:'p'+Date.now().toString(36),name,av:pe.av});
+  else l=l.map(p=>p.id===pe.id?{...p,name,av:pe.av}:p);
+  store.set('mf_profiles',l);pe=null;renderProfiles();navBtn();
+}
+function delProf(){
+  if(!confirm('Delete this profile and its history?'))return;
+  const id=pe.id;localStorage.removeItem('mf_hist_'+id);localStorage.removeItem('mf_list_'+id);
+  store.set('mf_profiles',profs().filter(p=>p.id!==id));
+  if(PID===id){PID=null;ss('mf_pid','')}
+  pe=null;renderProfiles();navBtn();
+}
+navBtn();
 
 /* start */
 if(!CFG.PROXY&&CFG.KEY.startsWith('YOUR'))$('#rows').innerHTML='<p style="padding:120px 4% 40px">Set your TMDB key in <code>CFG.KEY</code> at the top of the script.</p>';
 else loadHome('all');
+</script>
+<script type="module">
+// Paste your Firebase web config here (Firebase console > Project settings > Your apps > Web). It is safe to be public; Firestore rules protect the data.
+const FB={apiKey:"AIzaSyCNVuHQ16NIWMxY7WF9S1YdegWNxpoplbE",authDomain:"maitflix.firebaseapp.com",projectId:"maitflix",appId:"1:936772783213:web:a6b4bbb618dc87bee88364"};
+window.AUTH_ON=!!FB.apiKey;
+if(!FB.apiKey)window.gateCheck();
+if(FB.apiKey){
+  const B='https://www.gstatic.com/firebasejs/10.12.2/';
+  const A=await import(B+'firebase-auth.js'),F=await import(B+'firebase-firestore.js');
+  const {initializeApp}=await import(B+'firebase-app.js');
+  const app=initializeApp(FB),auth=A.getAuth(app),db=F.getFirestore(app);
+  let t;
+  const save=async()=>{const u=auth.currentUser;if(!u||!window.cloudReady)return;try{await F.setDoc(F.doc(db,'users',u.uid),{...window.localData(),updated:Date.now()})}catch(e){console.warn(e)}};
+  window.cloudSave=()=>{clearTimeout(t);t=setTimeout(save,1000)};
+  const MSG={'auth/email-already-in-use':'That email already has an account. Try logging in.','auth/invalid-credential':'Wrong email or password.','auth/wrong-password':'Wrong email or password.','auth/user-not-found':'Wrong email or password.','auth/weak-password':'Password must be at least 6 characters.','auth/invalid-email':'That email address looks invalid.','auth/popup-closed-by-user':'Sign-in was cancelled.','auth/unauthorized-domain':'Add this website domain in Firebase > Authentication > Settings > Authorized domains.','auth/operation-not-allowed':'This sign-in method is not enabled in Firebase yet.','auth/too-many-requests':'Too many attempts. Try again later.'};
+  window.Auth={
+    get user(){return auth.currentUser},
+    async signUp(n,e,p){const c=await A.createUserWithEmailAndPassword(auth,e,p);if(n)await A.updateProfile(c.user,{displayName:n});window.onAuth(auth.currentUser)},
+    signIn:(e,p)=>A.signInWithEmailAndPassword(auth,e,p),
+    google:()=>A.signInWithPopup(auth,new A.GoogleAuthProvider()),
+    async out(){sessionStorage.removeItem('mf_gate');clearTimeout(t);await save();await A.signOut(auth);window.clearLocal();window.closeAuth();window.toast('Signed out')},
+    reset:e=>A.sendPasswordResetEmail(auth,e),
+    msg:x=>MSG[x.code]||'Something went wrong. Please try again.'
+  };
+  A.onAuthStateChanged(auth,async u=>{
+    window.onAuth(u);if(!u){window.cloudReady=false;window.gateCheck();return}
+    try{const s=await F.getDoc(F.doc(db,'users',u.uid));window.applyCloud(s.exists()?s.data():{})}catch(e){console.warn(e)}
+    window.cloudReady=true;window.gateCheck();window.cloudSave();
+  });
+}
 </script>
 </body>
 </html>
