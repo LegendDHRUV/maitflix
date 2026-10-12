@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maitflix | Dhruv Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--a:#19d3c5;--b:#ffb020;--bg:#0b0f14;--card:#141a22}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#fff;font-family:Montserrat,sans-serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#dis{position:fixed;inset:0;background:#000f;z-index:5000;display:flex;align-items:center;justify-content:center}
+.dbox{background:var(--card);border-top:4px solid var(--a);border-radius:8px;padding:32px;max-width:500px;width:90%;text-align:center;color:#ccc;line-height:1.6;font-size:.95rem}
+.dbox h2{font-family:'Bebas Neue';color:var(--a);font-size:2.4rem;margin:0 0 10px}
+.pbtn{background:var(--a);color:#001;border:0;padding:12px 28px;border-radius:4px;font-weight:700;text-transform:uppercase}
+nav{position:fixed;top:0;width:100%;height:64px;padding:0 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:linear-gradient(#000c,transparent);z-index:1000;transition:background .3s}
+nav.s{background:#0b0f14f5}
+.nl{display:flex;align-items:center;gap:20px;min-width:0}
+.logo{font-family:'Bebas Neue';font-size:2rem;color:var(--a);letter-spacing:1px;cursor:pointer;line-height:1}
+.logo small{display:block;font:700 .45rem Montserrat;letter-spacing:3px;color:var(--b)}
+.links{display:flex;gap:16px;font-size:.85rem;overflow-x:auto;scrollbar-width:none}
+.links a{cursor:pointer;color:#cfd8e3;white-space:nowrap}.links a.on,.links a:hover{color:#fff;font-weight:700}
+.search{position:relative}
+#q{background:#000a;border:1px solid #556;color:#fff;padding:7px 10px;border-radius:4px;width:150px;outline:0}
+#sg{position:absolute;top:40px;right:0;width:260px;background:var(--card);border:1px solid #2a3340;display:none;z-index:2000}
+.si2{display:flex;align-items:center;gap:10px;padding:8px;cursor:pointer;font-size:.8rem;border-bottom:1px solid #222a35}.si2:hover{background:#1d2530}.si2 img{width:30px;border-radius:2px}
+.hero{height:82vh;min-height:420px;position:relative;display:flex;align-items:center;padding:0 4%;background:center/cover #000;transition:background-image 1s}
+.ho{position:absolute;inset:0;background:linear-gradient(90deg,#0b0f14ee 8%,transparent 70%),linear-gradient(0deg,var(--bg) 4%,transparent 30%)}
+#hc{position:relative;z-index:2;max-width:640px;transition:opacity .5s}
+#hl{max-width:380px;max-height:160px;margin-bottom:16px;display:none;object-fit:contain}
+#ht{font-family:'Bebas Neue';font-size:clamp(2.6rem,8vw,5rem);margin:0;line-height:1}
+#hd{line-height:1.5;margin:16px 0;text-shadow:0 2px 4px #000}
+.btn{padding:11px 22px;border:0;border-radius:4px;font-weight:700;margin:0 8px 8px 0}.b1{background:#fff;color:#000}.b2{background:#2b3542cc;color:#fff}
+#vibe{display:none;padding:20px 4% 0}#vibe.on{display:block}#vibe .row{padding-left:0}
+#vibe h2{margin:0 0 4px}
+.chips button{background:#1d2530;color:#fff;border:1px solid #2f3a48;border-radius:20px;padding:8px 14px;margin:0 8px 8px 0}.chips button.on{background:var(--b);color:#000}
+#vt{background:#1d2530;color:#fff;border:1px solid #2f3a48;border-radius:6px;padding:7px;margin-bottom:10px}
+.row{padding:22px 0 0 4%}.row h2{font-size:1.25rem;margin:0 0 8px}
+.wrap{position:relative}
+.slider{display:flex;gap:10px;overflow-x:auto;padding:12px 4% 28px 0;scrollbar-width:none;scroll-snap-type:x proximity}.slider::-webkit-scrollbar{display:none}
+.arr{position:absolute;top:12px;bottom:28px;width:40px;z-index:5;background:#000a;color:#fff;border:0;font-size:2rem;opacity:0;transition:.2s}.wrap:hover .arr{opacity:1}.arr.l{left:0}.arr.r{right:0}
+@media(hover:none){.arr{display:none}}
+.card{min-width:250px;height:140px;position:relative;border-radius:6px;overflow:hidden;cursor:pointer;background:var(--card);transition:transform .3s;scroll-snap-align:start;flex-shrink:0}
+.card:hover,.card:focus-visible{transform:scale(1.08);z-index:10;outline:2px solid var(--a)}
+.card img{width:100%;height:100%;object-fit:cover}
+.ct{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 6px;font-size:.78rem;font-weight:700;background:linear-gradient(transparent,#000d)}
+.pv{position:absolute;inset:0;pointer-events:none}.pv:empty{display:none}.pv iframe{width:100%;height:100%;border:0;background:#000}
+.sk{height:140px;min-width:250px;border-radius:6px;background:linear-gradient(90deg,#141a22,#1d2530,#141a22);background-size:200%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.modal{position:fixed;inset:0;background:#000e;z-index:3000;display:none;justify-content:center;overflow-y:auto;padding:4vh 0}.modal.on{display:flex}
+.mi{width:92%;max-width:900px;height:fit-content;background:var(--card);border-radius:12px;overflow:hidden;position:relative}
+.vb{aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center;color:#aaa}.vb iframe{width:100%;height:100%;border:0}
+.mb{padding:24px}
+.x{position:absolute;top:10px;right:10px;z-index:3;background:#000a;color:#fff;border:0;width:36px;height:36px;border-radius:50%;font-size:1.2rem}
+#mt{font-family:'Bebas Neue';color:var(--a);font-size:2.6rem;margin:6px 0}
+.meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:.9rem;color:#cfd8e3}.rt{color:var(--b);font-weight:700}
+#mp{line-height:1.6;color:#ddd;transition:filter .3s}#mp.bl{filter:blur(6px);user-select:none}
+.spl{font-size:.8rem;color:#aab;display:block;margin-top:8px}
+h3.sec{font-size:1rem;margin:20px 0 8px;color:var(--b)}
+.cast,.sim{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none}
+.cm{width:84px;flex-shrink:0;text-align:center;font-size:.7rem;color:#aab}
+.cm img,.cm .ph{width:84px;height:84px;border-radius:50%;object-fit:cover;background:#222a35;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:4px}
+.sm{width:110px;flex-shrink:0;cursor:pointer;font-size:.7rem}.sm img{width:100%;border-radius:4px;aspect-ratio:2/3;object-fit:cover;background:#222a35}
+.pg{display:flex;flex-wrap:wrap;gap:14px}.pc{font-size:.75rem;color:#cfd8e3}.pc img{width:36px;border-radius:8px;display:block;margin-bottom:2px}
+#shorts{position:fixed;inset:0;background:#000;z-index:4000;display:none;justify-content:center}#shorts.on{display:flex}
+#col{width:min(100%,440px);height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;scrollbar-width:none}
+.sh{height:100vh;height:100dvh;scroll-snap-align:start;position:relative;overflow:hidden;background:center/cover #111}
+.sv{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.sv iframe{position:absolute;top:0;left:50%;height:100%;width:calc(100vh*1.78);transform:translateX(-50%);border:0}
+.sf{position:absolute;left:0;right:0;bottom:0;padding:60px 16px 22px;background:linear-gradient(transparent,#000e);z-index:2}.sf p{font-size:.8rem;color:#ccc;margin:6px 0 10px}
+#sx{position:fixed;top:14px;right:14px;z-index:4100;background:#000a;color:#fff;border:0;width:40px;height:40px;border-radius:50%;font-size:1.3rem;display:none}#shorts.on~#sx{display:block}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--b);color:#000;padding:10px 18px;border-radius:6px;font-weight:700;z-index:6000;display:none}
+footer{background:#080b0f;padding:40px 4%;border-top:3px solid var(--a);text-align:center;color:#8a95a3;margin-top:40px;font-size:.85rem;line-height:1.8}
+footer a{color:var(--a)}
+@media(max-width:700px){nav{height:auto;padding:8px 4%;flex-wrap:wrap}.logo small{display:none}#q{width:110px}.card{min-width:200px;height:112px}.sk{min-width:200px;height:112px}.hero{height:70vh}}
+</style>
+</head>
+<body>
+<div id="dis"><div class="dbox"><h2>MAITFLIX</h2>
+<p>Maitflix is a cinematic portfolio project that shows <strong>trailers, teasers and descriptions</strong> of movies and series. It does not host or stream full-length copyrighted content.</p>
+<p style="font-size:.8rem;color:#888">Developed &amp; curated by <strong>Dhruv Gupta</strong></p>
+<button class="pbtn" onclick="enter()">Enter Maitflix</button></div></div>
+
+<nav id="nav">
+<div class="nl"><div class="logo" onclick="location.reload()">MAITFLIX<small>Dhruv Gupta</small></div>
+<div class="links"><a data-v="all" class="on">Home</a><a data-v="tv">Series</a><a data-v="movie">Movies</a><a data-v="vibe">Vibe</a><a data-v="shorts">Shorts</a><a data-v="list">My List</a></div></div>
+<div class="search"><input id="q" placeholder="Search..." autocomplete="off"><div id="sg"></div></div>
+</nav>
+
+<header class="hero" id="hero"><div class="ho"></div>
+<div id="hc"><img id="hl" alt=""><h1 id="ht"></h1><p id="hd"></p>
+<button class="btn b1" onclick="openModal()">▶ Watch Trailer</button><button class="btn b2" id="hb" onclick="toggleList()">+ My List</button></div></header>
+
+<section id="vibe"><h2>What's your vibe tonight?</h2>
+<select id="vt"><option value="movie">Movies</option><option value="tv">Series</option></select>
+<div class="chips" id="chips"></div><div id="vres"></div></section>
+
+<div id="rows"></div>
+
+<footer>
+<strong style="color:#fff;font-family:'Bebas Neue';font-size:1.8rem">MAITFLIX</strong><br>
+Developed by <strong style="color:#fff">Dhruv Gupta</strong> · Maharaja Agrasen Institute of Technology<br>
+<a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a> · <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a><br>
+This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability data by JustWatch.
+</footer>
+
+<div class="modal" id="modal"><div class="mi"><button class="x" onclick="closeModal()" aria-label="Close">✕</button>
+<div class="vb" id="vb"></div><div class="mb">
+<div class="meta" id="meta"></div><h2 id="mt"></h2><p id="mp"></p>
+<label class="spl"><input type="checkbox" id="sp"> Spoiler-free mode (blur plot)</label>
+<h3 class="sec">Where to watch (India)</h3><div id="prov"></div>
+<h3 class="sec">Cast</h3><div class="cast" id="cast"></div>
+<h3 class="sec">More like this</h3><div class="sim" id="sim"></div>
+</div></div></div>
+
+<div id="shorts"><div id="col"></div></div><button id="sx" onclick="closeShorts()" aria-label="Close shorts">✕</button>
+<div id="toast"></div>
+
+<script>
+const CFG={KEY:'YOUR_NEW_TMDB_KEY',PROXY:'',REGION:'IN'}; // PROXY: your Spring Boot base URL later (then KEY is not sent from the browser)
+const IMG='https://image.tmdb.org/t/p/';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const title=i=>i.title||i.name||'';
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+const cache=new Map();
+let cur=null,tok=0,loadTok=0,view='all',featured=[],idx=0,auto,modalOpen=false,tt;
+
+async function api(path,p={}){
+  const u=new URL((CFG.PROXY||'https://api.themoviedb.org/3')+path);
+  if(!CFG.PROXY)u.searchParams.set('api_key',"49abc2b93cf5751622b46aee5e73fb80");
+  for(const k in p)u.searchParams.set(k,p[k]);
+  const key=u.toString();
+  if(cache.has(key))return cache.get(key);
+  const r=await fetch(key);if(!r.ok)throw new Error(r.status);
+  const d=await r.json();cache.set(key,d);return d;
+}
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(tt);tt=setTimeout(()=>t.style.display='none',2200)}
+function pickTrailer(v){const r=(v.results||[]).filter(x=>x.site==='YouTube');return(r.find(x=>x.type==='Trailer'&&x.official)||r.find(x=>x.type==='Trailer')||r.find(x=>x.type==='Teaser')||{}).key}
+
+/* intro */
+function chime(){try{const a=new AudioContext(),t=a.currentTime;[523,659,784].forEach((f,i)=>{const o=a.createOscillator(),g=a.createGain(),s=t+i*.12;o.frequency.value=f;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.15,s+.03);g.gain.exponentialRampToValueAtTime(.0001,s+.5);o.connect(g).connect(a.destination);o.start(s);o.stop(s+.55)})}catch{}}
+function enter(){$('#dis').style.display='none';try{sessionStorage.setItem('mf_ok',1)}catch{}chime()}
+try{if(sessionStorage.getItem('mf_ok'))$('#dis').style.display='none'}catch{}
+
+/* rows & cards */
+function card(i,t){
+  const c=document.createElement('div');c.className='card';c.tabIndex=0;
+  c.innerHTML=`<img loading="lazy" src="${IMG}w500${i.backdrop_path||i.poster_path}" alt="${esc(title(i))}"><div class="ct">${esc(title(i))}</div><div class="pv"></div>`;
+  const go=()=>{stopAuto();window.scrollTo({top:0,behavior:'smooth'});setHero(i.id,t,true)};
+  c.onclick=go;c.onkeydown=e=>{if(e.key==='Enter')go()};
+  if(matchMedia('(hover:hover)').matches){
+    let h;
+    c.onmouseenter=()=>{h=setTimeout(async()=>{try{const k=pickTrailer(await api(`/${t}/${i.id}/videos`));if(k&&c.matches(':hover'))c.querySelector('.pv').innerHTML=`<iframe src="https://www.youtube.com/embed/${k}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1" allow="autoplay"></iframe>`}catch{}},900)};
+    c.onmouseleave=()=>{clearTimeout(h);c.querySelector('.pv').innerHTML=''};
+  }
+  return c;
+}
+function buildRow(name,items,type){
+  items=(items||[]).filter(i=>i.backdrop_path&&(type||['movie','tv'].includes(i.media_type)));
+  if(!items.length)return null;
+  const row=document.createElement('section');row.className='row';
+  row.innerHTML=`<h2>${esc(name)}</h2><div class="wrap"><button class="arr l" aria-label="Scroll left">‹</button><div class="slider"></div><button class="arr r" aria-label="Scroll right">›</button></div>`;
+  const s=row.querySelector('.slider');
+  items.forEach(i=>s.appendChild(card(i,type||i.media_type)));
+  row.querySelector('.l').onclick=()=>s.scrollBy({left:-s.clientWidth*.8,behavior:'smooth'});
+  row.querySelector('.r').onclick=()=>s.scrollBy({left:s.clientWidth*.8,behavior:'smooth'});
+  return row;
+}
+const HI={with_original_language:'hi',sort_by:'popularity.desc'};
+const VIEWS={
+  all:[['Trending Now','/trending/all/week'],['Popular Series','/tv/popular','tv'],['Bollywood Hits','/discover/movie','movie',HI]],
+  tv:[['Trending Series','/trending/tv/week','tv'],['Popular Series','/tv/popular','tv'],['Top Rated Series','/tv/top_rated','tv']],
+  movie:[['Trending Movies','/trending/movie/week','movie'],['Now Playing','/movie/now_playing','movie'],['Top Rated','/movie/top_rated','movie'],['Bollywood Hits','/discover/movie','movie',HI]]
+};
+function personal(){
+  ['mylist','recent'].forEach(id=>document.getElementById(id)?.remove());
+  [['recent','Recently Viewed','mf_hist'],['mylist','My List','mf_list']].forEach(([id,n,k])=>{
+    const r=buildRow(n,store.get(k,[]),null);if(r){r.id=id;$('#rows').prepend(r)}});
+}
+async function loadHome(v){
+  view=v;stopAuto();const my=++loadTok;
+  document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
+  const R=$('#rows');
+  R.innerHTML=`<div class="row"><div class="slider">${'<div class="sk"></div>'.repeat(8)}</div></div>`.repeat(2);
+  const defs=VIEWS[v];
+  const res=await Promise.allSettled(defs.map(d=>api(d[1],d[3]||{})));
+  if(my!==loadTok)return;
+  R.innerHTML='';if(v==='all')personal();
+  let first=null;
+  res.forEach((r,i)=>{if(r.status!=='fulfilled')return;const items=r.value.results||[];const row=buildRow(defs[i][0],items,defs[i][2]);if(row)R.appendChild(row);if(!first)first={items,t:defs[i][2]}});
+  if(!first){R.innerHTML='<p style="padding:40px 4%">Could not load titles. Check your TMDB key and network.</p>';return}
+  featured=first.items.filter(i=>i.backdrop_path&&(first.t||['movie','tv'].includes(i.media_type))).slice(0,8).map(i=>({id:i.id,t:first.t||i.media_type}));
+  if(!featured.length)return;
+  idx=0;setHero(featured[0].id,featured[0].t);startAuto();
+}
+function startAuto(){stopAuto();auto=setInterval(()=>{if(modalOpen||document.hidden||!featured.length)return;idx=(idx+1)%featured.length;setHero(featured[idx].id,featured[idx].t)},8000)}
+function stopAuto(){clearInterval(auto)}
+
+/* hero */
+async function setHero(id,t,user){
+  const my=++tok;let d;
+  try{d=await api(`/${t}/${id}`,{append_to_response:'videos,credits,recommendations,watch/providers,images',include_image_language:'en,null'})}catch{toast('Could not load that title');return}
+  if(my!==tok)return;
+  cur={...d,mt:t};listBtn();
+  const hc=$('#hc');hc.style.opacity=0;
+  setTimeout(()=>{
+    if(my!==tok)return;
+    const bg=d.backdrop_path||d.poster_path;
+    if(bg)$('#hero').style.backgroundImage=`url(${IMG}w1280${bg})`;
+    const logo=(d.images?.logos||[]).find(l=>l.iso_639_1==='en');
+    const hl=$('#hl'),ht=$('#ht');
+    if(logo){hl.src=IMG+'w500'+logo.file_path;hl.alt=title(d);hl.style.display='block';ht.style.display='none'}
+    else{hl.style.display='none';ht.textContent=title(d);ht.style.display='block'}
+    const o=d.overview||'';$('#hd').textContent=o.length>180?o.slice(0,180).trimEnd()+'…':o;
+    hc.style.opacity=1;
+  },user?150:450);
+}
+
+/* my list / history */
+const same=x=>x.id===cur.id&&x.media_type===cur.mt;
+const inList=()=>store.get('mf_list',[]).some(same);
+function listBtn(){$('#hb').textContent=cur&&inList()?'✓ In My List':'+ My List'}
+function toggleList(){
+  if(!cur)return;let l=store.get('mf_list',[]);
+  if(l.some(same)){l=l.filter(x=>!same(x));toast('Removed from My List')}
+  else{l.unshift({id:cur.id,media_type:cur.mt,title:title(cur),backdrop_path:cur.backdrop_path,poster_path:cur.poster_path});toast('Added to My List')}
+  store.set('mf_list',l);listBtn();if(view==='all')personal();
+}
+
+/* modal */
+function openModal(){
+  if(!cur)return;const d=cur;modalOpen=true;
+  const k=pickTrailer(d.videos||{});
+  $('#vb').innerHTML=k?`<iframe src="https://www.youtube.com/embed/${k}?autoplay=1&rel=0" allow="autoplay;fullscreen" allowfullscreen></iframe>`:'No trailer available';
+  $('#mt').textContent=title(d);
+  const yr=(d.release_date||d.first_air_date||'').slice(0,4);
+  const rt=d.runtime?`${d.runtime} min`:d.number_of_seasons?`${d.number_of_seasons} season${d.number_of_seasons>1?'s':''}`:'';
+  $('#meta').innerHTML=`<span class="rt">★ ${(d.vote_average||0).toFixed(1)}</span><span>${esc(yr)}</span><span>${esc(rt)}</span><span>${(d.genres||[]).map(g=>esc(g.name)).join(' · ')}</span>`;
+  $('#mp').textContent=d.overview||'No description available.';spoil();
+  const p=d['watch/providers']?.results?.[CFG.REGION]||{};
+  const gr=[['Stream',p.flatrate],['Rent',p.rent],['Buy',p.buy]].filter(g=>g[1]?.length);
+  $('#prov').innerHTML=gr.length?`<div class="pg">${gr.map(([n,a])=>`<div><div class="pc"><b>${n}</b></div><div class="pg">${a.slice(0,5).map(x=>`<div class="pc"><img src="${IMG}w92${x.logo_path}" alt="">${esc(x.provider_name)}</div>`).join('')}</div></div>`).join('')}</div>`:'<span class="pc">Not listed for India right now.</span>';
+  $('#cast').innerHTML=(d.credits?.cast||[]).slice(0,10).map(c=>`<div class="cm">${c.profile_path?`<img loading="lazy" src="${IMG}w185${c.profile_path}" alt="">`:`<div class="ph">${esc((c.name||'?')[0])}</div>`}<b>${esc(c.name)}</b><br>${esc(c.character||'')}</div>`).join('')||'—';
+  $('#sim').innerHTML=(d.recommendations?.results||[]).filter(x=>x.poster_path).slice(0,10).map(x=>`<div class="sm" data-id="${x.id}" data-t="${x.media_type||d.mt}"><img loading="lazy" src="${IMG}w342${x.poster_path}" alt=""><div>${esc(title(x))}</div></div>`).join('')||'—';
+  const h=store.get('mf_hist',[]).filter(x=>!same(x));
+  h.unshift({id:d.id,media_type:d.mt,title:title(d),backdrop_path:d.backdrop_path,poster_path:d.poster_path});store.set('mf_hist',h.slice(0,12));
+  $('#modal').classList.add('on');$('#modal').scrollTop=0;
+}
+function closeModal(){$('#modal').classList.remove('on');$('#vb').innerHTML='';modalOpen=false}
+function spoil(){$('#mp').classList.toggle('bl',$('#sp').checked)}
+$('#sp').checked=store.get('mf_spoil',false);
+$('#sp').onchange=()=>{store.set('mf_spoil',$('#sp').checked);spoil()};
+$('#modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
+$('#sim').onclick=async e=>{const s=e.target.closest('.sm');if(!s)return;await setHero(s.dataset.id,s.dataset.t,true);openModal()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeShorts()}});
+
+/* search */
+let st;
+$('#q').oninput=e=>{
+  clearTimeout(st);const q=e.target.value.trim();
+  if(q.length<2){$('#sg').style.display='none';return}
+  st=setTimeout(async()=>{try{
+    const r=(await api('/search/multi',{query:q})).results.filter(i=>['movie','tv'].includes(i.media_type)).slice(0,6);
+    $('#sg').innerHTML=r.map(i=>`<div class="si2" data-id="${i.id}" data-t="${i.media_type}">${i.poster_path?`<img src="${IMG}w92${i.poster_path}" alt="">`:''}<span>${esc(title(i))}</span></div>`).join('')||'<div class="si2">No results</div>';
+    $('#sg').style.display='block'}catch{}},300);
+};
+$('#sg').onclick=e=>{const d=e.target.closest('[data-id]');if(!d)return;stopAuto();window.scrollTo({top:0,behavior:'smooth'});setHero(d.dataset.id,d.dataset.t,true);$('#sg').style.display='none';$('#q').value=''};
+document.addEventListener('click',e=>{if(!e.target.closest('.search'))$('#sg').style.display='none'});
+
+/* vibe search */
+const VIBES={'🧠 Mind-bending':{with_genres:'878|9648'},'🛋️ Comfort watch':{with_genres:'35|10751|10749'},'⏱️ Under 90 min':{'with_runtime.gte':60,'with_runtime.lte':90},'😱 Hostel night':{with_genres:'27|35'},'💥 Adrenaline':{with_genres:'28|12'},'🇮🇳 Desi feels':{with_original_language:'hi',with_genres:'18|10749|35'}};
+$('#chips').innerHTML=Object.keys(VIBES).map(k=>`<button>${k}</button>`).join('');
+$('#chips').onclick=async e=>{
+  const b=e.target.closest('button');if(!b)return;
+  [...$('#chips').children].forEach(x=>x.classList.toggle('on',x===b));
+  const t=$('#vt').value;
+  try{
+    const d=await api(`/discover/${t}`,{sort_by:'popularity.desc','vote_count.gte':200,...VIBES[b.textContent]});
+    const r=buildRow(b.textContent+' picks',d.results,t);
+    if(r)$('#vres').replaceChildren(r);else $('#vres').textContent='Nothing found for that vibe.';
+  }catch{toast('Vibe search failed')}
+};
+$('#vt').onchange=()=>$('#chips .on')?.click();
+
+/* shorts */
+async function openShorts(){
+  const o=$('#shorts');o.classList.add('on');document.body.style.overflow='hidden';
+  if(o.dataset.r)return;o.dataset.r=1;
+  let items=[];
+  try{items=(await api('/trending/all/day')).results.filter(i=>['movie','tv'].includes(i.media_type)&&i.poster_path).slice(0,15)}
+  catch{toast('Could not load shorts');o.dataset.r='';return}
+  const col=$('#col');
+  const io=new IntersectionObserver(es=>es.forEach(async e=>{
+    const s=e.target,box=s.querySelector('.sv');
+    if(e.isIntersecting){
+      s.dataset.v=1;
+      try{const k=pickTrailer(await api(`/${s.dataset.t}/${s.dataset.id}/videos`));
+        if(k&&s.dataset.v==='1')box.innerHTML=`<iframe src="https://www.youtube.com/embed/${k}?autoplay=1&mute=1&controls=0&loop=1&playlist=${k}&playsinline=1&modestbranding=1" allow="autoplay"></iframe>`}catch{}
+    }else{s.dataset.v=0;box.innerHTML=''}
+  }),{root:col,threshold:.7});
+  items.forEach(i=>{
+    const s=document.createElement('div');s.className='sh';s.dataset.id=i.id;s.dataset.t=i.media_type;
+    s.style.backgroundImage=`url(${IMG}w780${i.poster_path})`;
+    s.innerHTML=`<div class="sv"></div><div class="sf"><b>${esc(title(i))}</b><p>${esc((i.overview||'').slice(0,110))}…</p><button class="btn b1">Details</button></div>`;
+    s.querySelector('button').onclick=async()=>{closeShorts();await setHero(i.id,i.media_type,true);openModal()};
+    col.appendChild(s);io.observe(s);
+  });
+}
+function closeShorts(){$('#shorts').classList.remove('on');document.body.style.overflow='';document.querySelectorAll('#col .sv').forEach(b=>b.innerHTML='')}
+
+/* nav */
+document.querySelector('.links').onclick=e=>{
+  const a=e.target.closest('a');if(!a)return;const v=a.dataset.v;
+  if(['all','tv','movie'].includes(v)){loadHome(v);window.scrollTo({top:0,behavior:'smooth'})}
+  else if(v==='vibe'){const el=$('#vibe');el.classList.toggle('on');if(el.classList.contains('on'))el.scrollIntoView({behavior:'smooth'})}
+  else if(v==='shorts')openShorts();
+  else if(v==='list'){
+    if(!store.get('mf_list',[]).length){toast('Your list is empty. Add titles from the hero.');return}
+    loadHome('all').then(()=>$('#mylist')?.scrollIntoView({behavior:'smooth'}));
+  }
+};
+window.addEventListener('scroll',()=>$('#nav').classList.toggle('s',scrollY>50));
+
+/* start */
+if(!CFG.PROXY&&CFG.KEY.startsWith('YOUR'))$('#rows').innerHTML='<p style="padding:120px 4% 40px">Set your TMDB key in <code>CFG.KEY</code> at the top of the script.</p>';
+else loadHome('all');
+</script>
+</body>
+</html>
