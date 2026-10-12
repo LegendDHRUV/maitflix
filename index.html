@@ -10,7 +10,9 @@
 <title>Maitflix | Dhruv Gupta</title>
 <meta name="description" content="Maitflix: a trailer and discovery portfolio project by Dhruv Gupta. Vibe search, where-to-watch, shorts and more.">
 <meta name="theme-color" content="#0b0f14">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--a:#19d3c5;--b:#ffb020;--bg:#0b0f14;--card:#141a22}
@@ -80,7 +82,7 @@ h3.sec{font-size:1rem;margin:20px 0 8px;color:var(--b)}
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--b);color:#000;padding:10px 18px;border-radius:6px;font-weight:700;z-index:6000;display:none}
 footer{background:#080b0f;padding:40px 4%;border-top:3px solid var(--a);text-align:center;color:#8a95a3;margin-top:40px;font-size:.85rem;line-height:1.8}
 footer a{color:var(--a)}
-@media(max-width:700px){nav{height:auto;padding:8px 4%;flex-wrap:wrap}.logo small{display:none}#q{width:110px}.card{min-width:200px;height:112px}.sk{min-width:200px;height:112px}.hero{height:70vh}}
+@media(max-width:700px){nav{height:auto;padding:8px 4%;flex-wrap:wrap}#q{width:110px}.card{min-width:200px;height:112px}.sk{min-width:200px;height:112px}.hero{height:70vh}}
 nav{justify-content:flex-start}.search{margin-left:auto}
 .abtn{margin-left:12px;background:transparent;color:#fff;border:1px solid var(--a);border-radius:20px;padding:7px 16px;font-weight:700;white-space:nowrap}.abtn.av{width:36px;height:36px;padding:0;border-radius:50%;background:var(--a);color:#001}
 #auth{position:fixed;inset:0;background:#000e;z-index:3500;display:none;align-items:center;justify-content:center}#auth.on{display:flex}
@@ -140,7 +142,8 @@ nav{height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top
 #hl{max-width:240px}.btn{padding:10px 16px;font-size:.9rem}
 .row h2{font-size:1.05rem}.slider{padding-bottom:20px}
 .bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1100;background:#0b0f14f5;border-top:1px solid #1f2933;padding-bottom:env(safe-area-inset-bottom)}
-.bnav a{flex:1;text-align:center;padding:8px 0 6px;font-size:.62rem;color:#8a95a3;cursor:pointer}.bnav a i{display:block;font-style:normal;font-size:1.25rem;line-height:1.3}.bnav a.on{color:var(--a);font-weight:700}
+.bnav a{flex:1;text-align:center;padding:15px 0 14px;font-size:.74rem;letter-spacing:.3px;color:#8a95a3;cursor:pointer;border-top:2px solid transparent;margin-top:-1px;white-space:nowrap}.bnav a.on{color:#fff;font-weight:700;border-top-color:var(--a)}
+.logo{flex-shrink:0;white-space:nowrap}.logo small{display:block;font-size:.42rem;letter-spacing:2.5px;margin-top:2px}
 #toast{bottom:calc(80px + env(safe-area-inset-bottom));max-width:90%}
 .modal{padding:0}.mi{width:100%;min-height:100%;border-radius:0}.mb{padding:18px}#mt{font-size:2.1rem}.x{top:calc(10px + env(safe-area-inset-top));width:40px;height:40px}
 #gcard{padding:26px 20px;margin:2vh auto 30px}#gcard input,#abox input,.pedit input{font-size:16px}
@@ -149,6 +152,10 @@ nav{height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top
 #sx{top:calc(14px + env(safe-area-inset-top))}.sf{padding-bottom:calc(22px + env(safe-area-inset-bottom))}
 #abox{max-height:86vh}footer{padding-bottom:30px}
 }
+/* PWA install button */
+#inst{background:var(--a);color:#001;border-color:var(--a)}
+@media(max-width:700px){#inst{padding:7px 10px;font-size:.75rem}}
+@media(display-mode:standalone){#inst{display:none!important}}
 </style>
 </head>
 <body>
@@ -163,7 +170,7 @@ nav{height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top
 <div class="search"><input id="q" placeholder="Search..." autocomplete="off"><div id="sg"></div></div>
 <button id="ab" class="abtn" onclick="openAuth()">Sign in</button>
 </nav>
-<div class="bnav"><a data-v="all" class="on"><i>🏠</i>Home</a><a data-v="tv"><i>📺</i>Series</a><a data-v="movie"><i>🎬</i>Movies</a><a data-v="vibe"><i>✨</i>Vibe</a><a data-v="shorts"><i>▶️</i>Shorts</a><a data-v="list"><i>➕</i>My List</a></div>
+<div class="bnav"><a data-v="all" class="on">Home</a><a data-v="tv">Series</a><a data-v="movie">Movies</a><a data-v="vibe">Vibe</a><a data-v="shorts">Shorts</a><a data-v="list">My List</a></div>
 
 <header class="hero" id="hero"><div class="ho"></div>
 <div id="hc"><img id="hl" alt=""><h1 id="ht"></h1><p id="hd"></p>
@@ -578,6 +585,22 @@ if(FB.apiKey){
     window.cloudReady=true;window.gateCheck();window.cloudSave();
   });
 }
+</script>
+<script>
+/* PWA: service worker + install button */
+if('serviceWorker' in navigator){
+  addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+let dip;
+addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();dip=e;
+  if(document.getElementById('inst'))return;
+  const b=document.createElement('button');
+  b.id='inst';b.className='abtn';b.textContent='⬇ Install app';
+  b.onclick=async()=>{dip.prompt();await dip.userChoice;dip=null;b.remove()};
+  document.getElementById('nav').appendChild(b);
+});
+addEventListener('appinstalled',()=>{document.getElementById('inst')?.remove();toast('Maitflix installed!')});
 </script>
 </body>
 </html>
